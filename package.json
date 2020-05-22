@@ -1,0 +1,101 @@
+{
+  "name": "soundwise_v2",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "test": "jest",
+    "precommit": "lint-staged",
+    "ios": "node node_modules/react-native/local-cli/cli.js run-ios",
+    "android": "node node_modules/react-native/local-cli/cli.js run-android",
+    "adb8081": "adb reverse tcp:8081 tcp:8081",
+    "adb9090": "adb reverse tcp:9090 tcp:9090",
+    "promote-android": "npx code-push promote natashache/Soundwise-Android Staging Production",
+    "promote-ios": "npx code-push promote natashache/Soundwise-iOS Staging Production",
+    "update-ios": "npx code-push release-react natashache/Soundwise-iOS ios",
+    "update-android": "npx code-push release-react natashache/Soundwise-Android android",
+    "adb-install-debug": "adb install android/app/build/outputs/apk/debug/app-debug.apk",
+    "adb-install-release": "adb install android/app/build/outputs/apk/release/app-release.apk"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "moment": "^2.22.2",
+    "ramda": "^0.25.0",
+    "react": "16.3.1",
+    "react-native": "0.55.4",
+    "react-native-actionsheet": "^2.4.2",
+    "react-native-background-downloader": "^1.0.1",
+    "react-native-cached-image": "github:fungilation/react-native-cached-image",
+    "react-native-code-push": "^5.4.1",
+    "react-native-draftjs-render": "^2.8.2",
+    "react-native-fabric": "^0.5.1",
+    "react-native-fbsdk": "^0.8.0",
+    "react-native-firebase": "^4.2.0",
+    "react-native-image-picker": "^0.26.10",
+    "react-native-keyboard-aware-scroll-view": "^0.5.0",
+    "react-native-music-control": "^0.7.3",
+    "react-native-pdf": "^4.0.0",
+    "react-native-progress": "^3.5.0",
+    "react-native-render-html": "^3.10.0",
+    "react-native-slider": "^0.11.0",
+    "react-native-splash-screen": "^3.1.1",
+    "react-native-svg": "^5.5.1",
+    "react-native-svg-uri": "^1.2.3",
+    "react-native-video": "^3.1.0",
+    "react-navigation": "^2.9.1",
+    "react-navigation-tabs": "^0.5.1",
+    "react-redux": "^5.0.7",
+    "redux": "^4.0.0",
+    "redux-actions": "^2.4.0",
+    "redux-devtools-extension": "^2.13.5",
+    "redux-persist": "^5.10.0",
+    "redux-saga": "^0.16.0",
+    "rn-fetch-blob": "^0.10.12",
+    "styled-components": "^3.3.3"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.0.0-beta.47",
+    "babel-eslint": "^7.2.3",
+    "babel-jest": "22.4.3",
+    "babel-preset-react-native": "^4.0.0",
+    "code-push-cli": "^2.1.9",
+    "eslint": "^4.19.1",
+    "eslint-config-react-app": "^2.1.0",
+    "eslint-plugin-flowtype": "^2.50.0",
+    "eslint-plugin-import": "^2.13.0",
+    "eslint-plugin-jsx-a11y": "^5.1.1",
+    "eslint-plugin-react": "^7.10.0",
+    "husky": "^0.14.3",
+    "jest": "22.4.3",
+    "lint-staged": "^7.2.0",
+    "prettier": "^1.13.7",
+    "prop-types": "^15.6.2",
+    "react-test-renderer": "16.3.1"
+  },
+  "jest": {
+    "preset": "react-native"
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx}": [
+      "prettier --write",
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true,
+    "trailingComma": "all"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app"
+    ],
+    "rules": {
+      "import/no-unresolved": "error",
+      "import/named": "error",
+      "import/namespace": "error",
+      "import/no-duplicates": "error"
+    }
+  }
+}
